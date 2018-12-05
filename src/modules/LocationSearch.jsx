@@ -46,6 +46,10 @@ export class LocationSearch extends React.Component {
     }
 
     render() {
+        const lijstje = this.state.resultsFS.groups ? this.state.resultsFS.groups[0].items.map((item) => {
+            return (<li key={item}>{item.venue.name}</li>)
+        }): null;
+
         return (
             <div>
                 {/* <TypeAhead options={this.state.typeAheadOptions} selection={this.selectedLocation} ></TypeAhead> */}
@@ -55,9 +59,9 @@ export class LocationSearch extends React.Component {
                 </form>
                 <p>{this.state.selectedLocation}</p>
                 <p>{this.state.results}</p>
-                <p>
-                    {this.state.resultsFS.groups ? this.state.resultsFS.groups[0].items[0].venue.name : null}
-                </p>
+                <ol>
+                    {lijstje}
+                </ol>
 
             </div>
 
