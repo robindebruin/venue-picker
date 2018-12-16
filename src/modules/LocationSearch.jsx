@@ -45,9 +45,14 @@ export class LocationSearch extends React.Component {
             });
     }
 
+    selectedVenue = venue => {
+        console.log('ven', venue);
+        
+    }
+
     render() {
         const lijstje = this.state.resultsFS.groups ? this.state.resultsFS.groups[0].items.map((item) => {
-            return (<li key={item}>{item.venue.name}</li>)
+            return (<li onClick={this.selectedVenue(item.venue)} key={item}>{item.venue.name}</li>)
         }): null;
 
         return (
@@ -59,10 +64,9 @@ export class LocationSearch extends React.Component {
                 </form>
                 <p>{this.state.selectedLocation}</p>
                 <p>{this.state.results}</p>
-                <ol>
+                <ol >
                     {lijstje}
                 </ol>
-
             </div>
 
         )
