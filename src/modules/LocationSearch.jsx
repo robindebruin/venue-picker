@@ -47,12 +47,13 @@ export class LocationSearch extends React.Component {
 
     selectedVenue = venue => {
         console.log('ven', venue);
+        this.props.onSelect(venue)
         
     }
 
     render() {
         const lijstje = this.state.resultsFS.groups ? this.state.resultsFS.groups[0].items.map((item) => {
-            return (<li onClick={this.selectedVenue(item.venue)} key={item}>{item.venue.name}</li>)
+            return (<li onClick={() => this.selectedVenue(item.venue)} key={item}>{item.venue.name}</li>)
         }): null;
 
         return (
